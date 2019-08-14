@@ -15,7 +15,7 @@ compile: $(MAIN_BINARIES) $(TEST_BINARIES)
 
 test: $(TEST_BINARIES)
 #	for T in $(TEST_BINARIES); do valgrind --leak-check=full ./$$T; done
-	for T in $(TEST_BINARIES); do ./$$T; done
+	for T in $(TEST_BINARIES); do ./$$T.exe; done
 
 checkstyle:
 	python3 ./cpplint.py --repository=. *.h *.cpp
@@ -26,10 +26,10 @@ clean:
 	rm -f $(TEST_BINARIES)
 
 %Main: %Main.o $(OBJECTS)
-	$(CXX) -o $@ $^ $(LIBRARIES)
+	$(CXX) -o $@.exe $^ $(LIBRARIES)
 
 %Test: %Test.o $(OBJECTS)
-	$(CXX) -o $@ $^ $(LIBRARIES) -lgtest -lgtest_main -lpthread
+	$(CXX) -o $@.exe $^ $(LIBRARIES) -lgtest -lgtest_main -lpthread
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) -c $<
