@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+BridgeTest
+HashiMain
+HashiTest
+IslandTest
