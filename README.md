@@ -1,2 +1,4 @@
-# bridges
-An implementation of the logic puzzle Hashiwokakero
+# Bridges
+An implementation of the logic puzzle Hashiwokakero  
+
+
